@@ -37,6 +37,7 @@
     'price': 188.00,
     'currency': 'USD',
 
+    'images': ['static/description/banner.png'],
     'depends': ['contacts', 'base', 'crm'],
     'data': [
         'security/ir.model.access.csv',

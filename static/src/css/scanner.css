@@ -1,0 +1,515 @@
+/* ================================================================
+   Business Card Scanner — scanner.css
+   Full stylesheet: existing widget styles + two-column layout
+================================================================ */
+
+/* ── Hide Odoo's built-in breadcrumb Save button ─────────────── */
+.bcs_form .o_form_button_save,
+.bcs_form .o_form_button_save_manually {
+    display: none !important;
+}
+
+/* ── Image field widget — force all Odoo wrappers to full width ── */
+.bcs_left_panel .o_field_widget,
+.bcs_left_panel .o_field_widget > div,
+.bcs_left_panel [name="card_image"],
+.bcs_left_panel [name="card_image"] > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    box-sizing: border-box;
+}
+
+.bcs_image_field {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.bcs_image_zone {
+    border: 2px dashed #2d3452;
+    border-radius: 12px;
+    min-height: 260px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #252a42;
+    margin-bottom: 14px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.bcs_image_zone:hover {
+    border-color: #4f5d8a;
+    background: #252a42;
+}
+
+.bcs_card_image {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Image overlay — clear button on hover */
+.bcs_image_zone .bcs_image_clear {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.55);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e2e8f0;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+    font-size: 0.75rem;
+    padding: 0;
+}
+
+.bcs_image_zone:hover .bcs_image_clear {
+    opacity: 1;
+}
+
+.bcs_upload_placeholder {
+    text-align: center;
+    color: #475569;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.bcs_upload_icon {
+    width: 52px;
+    height: 52px;
+    background: #252a42;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4f5d8a;
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.bcs_upload_text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.bcs_upload_sub {
+    font-size: 0.78em;
+    color: #475569;
+    margin: 0;
+}
+
+/* ── Action buttons below image zone ─────────────────────────── */
+.bcs_action_buttons {
+    display: flex;
+    width: 100%;
+}
+
+.bcs_btn_group {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+    width: 100%;
+}
+
+.bcs_btn_group .btn {
+    flex: 1 1 0;
+    min-width: 0;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 11px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    transition: filter 0.15s ease, transform 0.1s ease;
+    border: none;
+    white-space: nowrap;
+}
+
+.bcs_btn_group .btn:active {
+    transform: scale(0.97);
+}
+
+/* Upload button — purple accent */
+.bcs_btn_group .bcs_btn_upload {
+    background: #6d5bba;
+    color: #fff;
+}
+
+.bcs_btn_group .bcs_btn_upload:hover {
+    filter: brightness(1.12);
+    color: #fff;
+}
+
+/* Camera button — dark outlined */
+.bcs_btn_group .bcs_btn_camera {
+    background: #252a42;
+    color: #94a3b8;
+    border: 1px solid #2d3452;
+}
+
+.bcs_btn_group .bcs_btn_camera:hover {
+    background: #2d3452;
+    color: #e2e8f0;
+    border-color: #4f5d8a;
+}
+
+/* ================================================================
+   CAMERA MODAL TELEPORT — injected into <body> by JS
+   Uses z-index 999999 to escape all Odoo stacking contexts
+================================================================ */
+
+.bcs_camera_modal_teleport {
+    display: none; /* JS sets to "flex" on open */
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+}
+
+.bcs_cmt_backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.bcs_cmt_content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background: #111827;
+    border-radius: 14px;
+    overflow: hidden;
+    width: min(94vw, 720px);
+    max-height: 85vh;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.bcs_cmt_video {
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: block;
+    object-fit: cover;
+    background: #000;
+    max-height: 65vh;
+}
+
+.bcs_cmt_canvas {
+    display: none;
+}
+
+.bcs_cmt_actions {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 18px 20px;
+    background: #111827;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bcs_cmt_btn_capture,
+.bcs_cmt_btn_cancel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 32px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.15s;
+}
+
+.bcs_cmt_btn_capture {
+    background: #2563eb;
+    color: #fff;
+}
+
+.bcs_cmt_btn_capture:hover {
+    background: #1d4ed8;
+}
+
+.bcs_cmt_btn_cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #d1d5db;
+}
+
+.bcs_cmt_btn_cancel:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.bcs_cmt_dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-block;
+}
+
+/* ================================================================
+   TWO-COLUMN LAYOUT — Image (left) | Contact Details (right)
+================================================================ */
+
+.bcs_scanner_container {
+    padding: 16px;
+}
+
+.bcs_two_col {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* ── Left panel: image upload (40%) ─────────────────────────── */
+.bcs_left_panel {
+    flex: 0 0 40%;
+    max-width: 40%;
+    position: sticky;
+    top: 16px;
+    background: #1e2235;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.bcs_left_panel .bcs_panel_header {
+    border-bottom: none;
+    margin-bottom: 16px;
+}
+
+.bcs_left_panel .bcs_panel_header h3 {
+    color: #f1f5f9;
+}
+
+/* ── Right panel: contact fields (60%) ──────────────────────── */
+.bcs_right_panel {
+    flex: 1;
+    min-width: 0;
+    background: #1e2235;
+    border-radius: 12px;
+    padding: 20px;
+    color: #e2e8f0;
+}
+
+/* ── Panel header ────────────────────────────────────────────── */
+.bcs_panel_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.bcs_panel_title_row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bcs_avatar_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #2d3452;
+    border-radius: 50%;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.bcs_panel_header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+/* ── Section grouping ────────────────────────────────────────── */
+.bcs_section {
+    margin-bottom: 20px;
+}
+
+.bcs_section:last-of-type {
+    margin-bottom: 0;
+}
+
+.bcs_section_label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+.bcs_fields_group {
+    background: #252a42;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ── Field rows ──────────────────────────────────────────────── */
+.bcs_field_row {
+    display: grid;
+    grid-template-columns: 36px 110px 1fr;
+    align-items: center;
+    gap: 0 8px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e2235;
+    transition: background 0.15s ease;
+}
+
+.bcs_field_row:last-child {
+    border-bottom: none;
+}
+
+.bcs_field_row:hover {
+    background: #2d3452;
+}
+
+/* ── Field icons ─────────────────────────────────────────────── */
+.bcs_field_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #1e2235;
+    border-radius: 6px;
+    color: #64748b;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* ── Field labels ────────────────────────────────────────────── */
+.bcs_field_row .bcs_field_label,
+.bcs_field_row label {
+    font-weight: 500;
+    color: #94a3b8;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    text-align: left;
+}
+
+/* ── Field inputs — blend into the dark card ─────────────────── */
+.bcs_right_panel .bcs_field_input .o_field_widget input,
+.bcs_right_panel .bcs_field_input input,
+.bcs_right_panel .bcs_field_input .o_input {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #e2e8f0 !important;
+    font-size: 0.9rem;
+    padding: 0 !important;
+}
+
+.bcs_right_panel .bcs_field_input .o_field_widget input::placeholder,
+.bcs_right_panel .bcs_field_input input::placeholder {
+    color: #475569 !important;
+}
+
+/* Many2one dropdowns inside the dark panel */
+.bcs_right_panel .bcs_field_input .o_field_many2one_selection input {
+    background: transparent !important;
+    border: none !important;
+    color: #e2e8f0 !important;
+}
+
+/* Read-only text values */
+.bcs_right_panel .bcs_field_input .o_field_widget span,
+.bcs_right_panel .bcs_field_input span.o_field_char {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+}
+
+/* Clickable links (email, website) */
+.bcs_right_panel .bcs_field_input a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.bcs_right_panel .bcs_field_input a:hover {
+    text-decoration: underline;
+}
+
+/* ── State badge inside panel header ────────────────────────── */
+.bcs_state_badge {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* ── Saved contact banner ────────────────────────────────────── */
+.bcs_saved_contact {
+    margin-top: 16px;
+}
+
+.bcs_success_banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: #064e3b;
+    border: 1px solid #065f46;
+    border-radius: 8px;
+    color: #6ee7b7;
+    font-size: 0.875rem;
+}
+
+/* ================================================================
+   RESPONSIVE — stack vertically on small screens
+================================================================ */
+@media (max-width: 768px) {
+    .bcs_two_col {
+        flex-direction: column;
+    }
+
+    .bcs_left_panel,
+    .bcs_right_panel {
+        flex: unset;
+        max-width: 100%;
+        width: 100%;
+        position: static;
+    }
+
+    .bcs_field_row {
+        grid-template-columns: 32px 90px 1fr;
+    }
+
+    .bcs_cmt_content {
+        width: 98vw;
+        max-height: 90vh;
+    }
+
+    .bcs_cmt_btn_capture,
+    .bcs_cmt_btn_cancel {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+}

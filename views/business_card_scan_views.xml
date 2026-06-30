@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         WIZARD FORM — business.card.scan (TransientModel)
+         Opens as target="new" dialog — never bleeds into background.
+    ================================================================ -->
+    <record id="view_business_card_scan_form" model="ir.ui.view">
+        <field name="name">business.card.scan.form</field>
+        <field name="model">business.card.scan</field>
+        <field name="arch" type="xml">
+            <form string="Business Card Scanner" class="bcs_form">
+                <header>
+                    <button name="action_extract_text" type="object"
+                            string="Extract Info" class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_save_contact" type="object"
+                            string="Save to Contacts" class="btn-success"
+                            invisible="state != 'extracted'"/>
+                    <button name="action_reset" type="object"
+                            string="Start Over" class="btn-secondary"
+                            invisible="state == 'draft'"/>
+                    <button name="action_view_contact" type="object"
+                            string="View Contact" class="btn-info"
+                            invisible="not partner_id"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,extracted"/>
+                </header>
+
+                <sheet>
+                    <widget name="web_ribbon" title="Saved"
+                            bg_color="text-bg-success"
+                            invisible="state != 'saved'"/>
+
+                    <div class="bcs_scanner_container">
+                        <div class="bcs_two_col">
+
+                            <!-- Left: Image upload -->
+                            <div class="bcs_left_panel">
+                                <div class="bcs_panel_header">
+                                    <h3>Business Card</h3>
+                                </div>
+
+                                <field name="card_image" widget="bcs_image"
+                                       readonly="state != 'draft'"
+                                       options="{'no_open': True}"/>
+
+                                <field name="card_image_filename" invisible="1"/>
+                            </div>
+
+                            <!-- Right: Extracted fields -->
+                            <div class="bcs_right_panel">
+                                <div class="bcs_panel_header">
+                                    <div class="bcs_panel_title_row">
+                                        <span class="bcs_avatar_icon">
+                                            <i class="fa fa-user-circle-o"/>
+                                        </span>
+                                        <h3>Contact Details</h3>
+                                    </div>
+                                    <span class="bcs_state_badge"
+                                          invisible="state == 'draft'">
+                                        <field name="state" widget="badge"/>
+                                    </span>
+                                </div>
+
+                                <!-- IDENTITY -->
+                                <div class="bcs_section">
+                                    <div class="bcs_section_label">IDENTITY</div>
+                                    <div class="bcs_fields_group">
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-id-card-o"/></span>
+                                            <label for="contact_name" string="Full Name" class="bcs_field_label"/>
+                                            <field name="contact_name" class="bcs_field_input"
+                                                   placeholder="e.g. John Smith"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-briefcase"/></span>
+                                            <label for="job_title" string="Job Title" class="bcs_field_label"/>
+                                            <field name="job_title" class="bcs_field_input"
+                                                   placeholder="e.g. Senior Engineer"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-building"/></span>
+                                            <label for="company_name" string="Company" class="bcs_field_label"/>
+                                            <field name="company_name" class="bcs_field_input"
+                                                   placeholder="e.g. TechCorp Ltd."
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CONTACT -->
+                                <div class="bcs_section">
+                                    <div class="bcs_section_label">CONTACT</div>
+                                    <div class="bcs_fields_group">
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-envelope"/></span>
+                                            <label for="email" string="Email" class="bcs_field_label"/>
+                                            <field name="email" class="bcs_field_input"
+                                                   placeholder="e.g. john@company.com"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-phone"/></span>
+                                            <label for="phone" string="Phone" class="bcs_field_label"/>
+                                            <field name="phone" class="bcs_field_input"
+                                                   placeholder="+1 555 123 4567"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-mobile"/></span>
+                                            <label for="mobile" string="Mobile" class="bcs_field_label"/>
+                                            <field name="mobile" class="bcs_field_input"
+                                                   placeholder="+1 555 987 6543"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-globe"/></span>
+                                            <label for="website" string="Website" class="bcs_field_label"/>
+                                            <field name="website" class="bcs_field_input"
+                                                   placeholder="www.company.com"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ADDRESS -->
+                                <div class="bcs_section">
+                                    <div class="bcs_section_label">ADDRESS</div>
+                                    <div class="bcs_fields_group">
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-map-marker"/></span>
+                                            <label for="street" string="Street" class="bcs_field_label"/>
+                                            <field name="street" class="bcs_field_input"
+                                                   placeholder="123 Business Ave, Suite 400"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-building-o"/></span>
+                                            <label for="city" string="City" class="bcs_field_label"/>
+                                            <field name="city" class="bcs_field_input"
+                                                   placeholder="San Francisco"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-hashtag"/></span>
+                                            <label for="zip_code" string="ZIP" class="bcs_field_label"/>
+                                            <field name="zip_code" class="bcs_field_input"
+                                                   placeholder="94105"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-flag-o"/></span>
+                                            <label for="country_id" string="Country" class="bcs_field_label"/>
+                                            <field name="country_id" class="bcs_field_input"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                        <div class="bcs_field_row">
+                                            <span class="bcs_field_icon"><i class="fa fa-map-o"/></span>
+                                            <label for="state_id" string="State/Region" class="bcs_field_label"/>
+                                            <field name="state_id" class="bcs_field_input"
+                                                   readonly="state != 'extracted'"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bcs_saved_contact" invisible="not partner_id">
+                                    <div class="bcs_success_banner">
+                                        <span>✓ Saved to Contacts: </span>
+                                        <field name="partner_id" readonly="1"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         PERMANENT LOG views — business.card.scan.log (Model)
+         FIX: state values on this model are 'pending' and 'moved'.
+              'saved' does not exist here — that was a wizard-only value
+              that leaked into the log views and caused the ParseError.
+    ================================================================ -->
+
+    <record id="view_business_card_scan_log_list" model="ir.ui.view">
+        <field name="name">business.card.scan.log.list</field>
+        <field name="model">business.card.scan.log</field>
+        <field name="arch" type="xml">
+            <!-- FIX: decoration-success was 'saved' — corrected to 'moved' -->
+            <list string="Scan History"
+                  decoration-success="state == 'moved'"
+                  create="0">
+                <field name="name"/>
+                <field name="contact_name"/>
+                <field name="company_name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="scan_source"/>
+                <field name="state" widget="badge"/>
+                <field name="create_date"/>
+                <field name="partner_id" optional="hide"/>
+                <button name="action_view_contact" type="object"
+                        string="View Contact" icon="fa-user"
+                        invisible="not partner_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_business_card_scan_log_kanban" model="ir.ui.view">
+        <field name="name">business.card.scan.log.kanban</field>
+        <field name="model">business.card.scan.log</field>
+        <field name="arch" type="xml">
+            <kanban class="bcs_kanban" quick_create="0">
+                <field name="name"/>
+                <field name="contact_name"/>
+                <field name="company_name"/>
+                <field name="email"/>
+                <field name="card_image"/>
+                <field name="state"/>
+                <field name="partner_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="bcs_kanban_card">
+                            <div class="bcs_kanban_img">
+                                <img t-if="record.card_image.value"
+                                     t-att-src="'/web/image/business.card.scan.log/' + record.id + '/card_image'"
+                                     alt="Business Card"/>
+                                <div t-else="" class="bcs_kanban_no_img">No Image</div>
+                            </div>
+                            <div class="bcs_kanban_info">
+                                <strong><t t-esc="record.contact_name.value or record.name.value"/></strong>
+                                <span t-if="record.company_name.value" class="bcs_kanban_company">
+                                    <t t-esc="record.company_name.value"/>
+                                </span>
+                                <span t-if="record.email.value" class="bcs_kanban_email">
+                                    <t t-esc="record.email.value"/>
+                                </span>
+                            </div>
+                            <div class="bcs_kanban_footer">
+                                <field name="state" widget="badge"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ================================================================
+     Search View
+    ================================================================ -->
+<!--    <record id="view_business_card_scan_log_search" model="ir.ui.view">-->
+<!--        <field name="name">business.card.scan.log.search</field>-->
+<!--        <field name="model">business.card.scan.log</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search>-->
+<!--                <field name="name"/>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="view_business_card_scan_log_search" model="ir.ui.view">
+        <field name="name">business.card.scan.log.search</field>
+        <field name="model">business.card.scan.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Scan History">
+                <field name="name" string="Reference"/>
+                <field name="contact_name" string="Contact Name"/>
+                <field name="company_name" string="Company"/>
+                <field name="email" string="Email"/>
+
+                <filter string="Moved to Contacts"
+                        name="filter_moved"
+                        domain="[('state', '=', 'moved')]"/>
+                <filter string="Pending Review"
+                        name="filter_pending"
+                        domain="[('state', '=', 'pending')]"/>
+
+                <separator/>
+
+                <filter string="Source"
+                        name="groupby_scan_source"
+                        context="{'group_by': 'scan_source'}"/>
+                <filter string="Status"
+                        name="groupby_state"
+                        context="{'group_by': 'state'}"/>
+                <filter string="Date"
+                        name="groupby_create_date"
+                        context="{'group_by': 'create_date:month'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ================================================================
+         ACTIONS
+    ================================================================ -->
+
+    <!--
+        FIXED: target="new" ensures the scanner wizard always opens as a
+        dialog popup — it will NEVER render behind or bleed into any
+        background view (partner form, contacts list, etc.)
+    -->
+    <record id="action_business_card_scan" model="ir.actions.act_window">
+        <field name="name">Business Card Scanner</field>
+        <field name="res_model">business.card.scan</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_business_card_scan_form"/>
+        <field name="target">new</field>
+        <field name="context">{'default_partner_id': active_id}</field>
+    </record>
+
+    <record id="action_business_card_scan_log" model="ir.actions.act_window">
+        <field name="name">All Scans</field>
+        <field name="res_model">business.card.scan.log</field>
+        <field name="view_mode">list,kanban</field>
+        <field name="search_view_id" ref="view_business_card_scan_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No scans saved yet.</p>
+            <p>Use New Scan to upload a business card and save it to Contacts.</p>
+        </field>
+    </record>
+
+    <record id="action_new_business_card_scan_server" model="ir.actions.server">
+        <field name="name">New Scan</field>
+        <field name="model_id" ref="model_business_card_scan"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_new_scan()</field>
+    </record>
+
+</odoo>

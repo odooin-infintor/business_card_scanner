@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="business_card_scanner.BCSImageField">
+        <div class="bcs_image_field">
+
+            <!-- ── Image preview ── -->
+            <div class="bcs_image_zone">
+                <t t-if="imageSrc">
+                    <img class="bcs_card_image" t-att-src="imageSrc" alt="Business Card"/>
+                    <t t-if="!isReadonly">
+                        <button class="bcs_image_clear" t-on-click="clearImage" title="Remove image">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </t>
+                </t>
+                <t t-else="">
+                    <div class="bcs_upload_placeholder">
+                        <div class="bcs_upload_icon"><i class="fa fa-id-card-o"/></div>
+                        <p class="bcs_upload_text">No image yet</p>
+                        <p class="bcs_upload_sub">Use the buttons below</p>
+                    </div>
+                </t>
+            </div>
+
+            <!-- ── Buttons ── -->
+            <t t-if="!isReadonly">
+                <div class="bcs_btn_group">
+                    <button class="btn bcs_btn_upload" t-on-click="triggerFileSelect">
+                        <i class="fa fa-upload"/> Upload Image
+                    </button>
+                    <button class="btn bcs_btn_camera" t-on-click="openCamera">
+                        <i class="fa fa-camera"/> Use Camera
+                    </button>
+                </div>
+            </t>
+
+            <!-- ── Hidden file input ── -->
+            <input
+                t-ref="bcsFileInput"
+                type="file"
+                accept="image/*"
+                style="display:none"
+                t-on-change="onFileChange"
+            />
+
+        </div>
+    </t>
+
+</templates>

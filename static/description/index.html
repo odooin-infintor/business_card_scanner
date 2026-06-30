@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>odoo Business Card Scanner</title>
+      <!-- Font Awesome CDN for Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+      <style>
+         /* General Styles */
+         body {
+         font-family: Arial, sans-serif;
+         margin: 20px;
+         background-color: #f9fbff;
+         }
+         .feature-item .box i {
+         color: #008080;
+         margin: 20px 0;
+         }
+         .screenshot-heading {
+         margin-top: 35px !important;
+         margin-bottom: 18px !important;
+         }
+         .screenshot-image {
+         margin-bottom: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+      <div class="main-body">
+         <section class="oe_container text-center">
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="color:#008080;"> Business Card Scanner </h2>
+               <p style="text-align: center;font-size: 20px;color:#785e5b">
+                  Effortlessly digitize business cards into Odoo with our AI-powered scanning extension. Capture or upload a card, let AI extract the contact details automatically, review and edit before saving, then convert each scan into a Contact or a Lead — eliminating manual data entry entirely.
+               </p>
+            </div>
+         </section>
+         <section class="oe_container text-center pb-5">
+            <div class="oe_row oe_spaced">
+               <h4 class="oe_slogan" style="color:#008080;">1. Community</h4>
+               <h4 class="oe_slogan" style="color:#008080;">2. Enterprise</h4>
+               <h4 class="oe_slogan" style="color:#008080;">3. odoo sh</h4>
+            </div>
+         </section>
+         <!-- Features Highlight Section -->
+         <div class="container features-highlight text-center">
+            <h3>Features Highlight</h3>
+            <div class="row my-3 py-2" style="justify-content:center">
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-camera fa-3x"></i>
+                     <h5 style="color: #3f8580;">Camera Capture / Image Upload</h5>
+                     <p>Capture a business card directly with your device camera or upload an existing image, on desktop or mobile.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-magic fa-3x"></i>
+                     <h5 style="color: #3f8580;">AI-Powered OCR Extraction</h5>
+                     <p>Extract text from scanned cards using advanced AI models, including OpenAI GPT-4o and Google Gemini.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-address-card fa-3x"></i>
+                     <h5 style="color: #3f8580;">Auto-Fill Contact Fields</h5>
+                     <p>Extracted information is automatically mapped to name, phone, email, company, address, and website.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-edit fa-3x"></i>
+                     <h5 style="color: #3f8580;">Preview & Edit Before Saving</h5>
+                     <p>Review extracted details and correct any field before the record is saved, ensuring accurate data.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-database fa-3x"></i>
+                     <h5 style="color: #3f8580;">Dedicated Scan Records</h5>
+                     <p>Every scan is saved to a dedicated Business Card Scan master record, separate from your main Contacts data.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-exchange-alt fa-3x"></i>
+                     <h5 style="color: #3f8580;">Convert to Contact or Lead</h5>
+                     <p>Save scanned cards as a Contact in res.partner, or convert them directly into a Lead in the CRM pipeline.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-history fa-3x"></i>
+                     <h5 style="color: #3f8580;">Clean Scan History</h5>
+                     <p>Browse every scanned card in an organized All Scans list, with clear status of conversion to Contact or Lead.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-key fa-3x"></i>
+                     <h5 style="color: #3f8580;">Bring Your Own API Key</h5>
+                     <p>Connect your own OpenAI or Google Gemini API key for OCR processing, keeping full control of your AI provider.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <section class="oe_container" style="padding: 0% 0% 0% 4%;">
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="text-align: left;opacity:0.6;font-size: 28px;font-weight: 600;margin: 0px !important;">
+                  <b>Screenshots<b/>
+               </h2>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 1) Capture or upload a business card image directly from the scanner screen.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="capture_screen.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 2) Click Extract Info Botton. AI extracts contact details automatically and presents them for review.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="ai_extraction.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 3) Preview and edit the extracted fields before saving the record.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="preview_edit.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 4) View your full scanning history in the All Scans list.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="all_scans_list.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 5) Convert a scanned card into a Contact with one click.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="convert_to_contact.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+               <h3 class="oe_slogan screenshot-heading" style="text-align: left;font-size: 18px;">
+                  <b> 6) Or convert a scanned card directly into a Lead in the CRM pipeline.</b>
+               </h3>
+               <div class="oe_row oe_spaced screenshot-image">
+                  <img src="convert_to_lead.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+               </div>
+            </div>
+         </section>
+         <div class="container services-section text-center py-5 my-5">
+            <h2>Our Services</h2>
+            <div class="services-container row my-3 py-2" style="justify-content: center">
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-tools fa-3x"></i>
+                     <h4>Odoo Implementation</h4>
+                     <p>End-to-end Odoo implementation to meet your business needs.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-cogs fa-3x"></i>
+                     <h4>Odoo Customization</h4>
+                     <p>Custom solutions tailored to your unique requirements.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-headset fa-3x"></i>
+                     <h4>Odoo Support & Training</h4>
+                     <p>Comprehensive support and training to enhance your Odoo usage.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-user-tie fa-3x"></i>
+                     <h4>Hire an Odoo Developer</h4>
+                     <p>Get access to skilled Odoo developers for your project needs.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-plug fa-3x"></i>
+                     <h4>Odoo Integration</h4>
+                     <p>Integrate Odoo seamlessly with third-party apps and systems.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-cloud fa-3x"></i>
+                     <h4>Odoo Hosting & Cloud</h4>
+                     <p>Secure and scalable Odoo hosting solutions.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-wrench fa-3x"></i>
+                     <h4>Odoo Maintenance</h4>
+                     <p>Ensure smooth and uninterrupted operations.</p>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <i class="fas fa-comments fa-3x"></i>
+                     <h4>Odoo Consulting</h4>
+                     <p>Expert consulting to help you leverage Odoo for maximum efficiency.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="support-section support-section text-center pb-5">
+            <h2>Support &amp; Demo</h2>
+            <div class="support-content" style="display: inline-block; text-align: center;">
+               <div class="support-item" style="padding:10px 30px; margin:2px; background-color: #f9fcfd; width:500px;">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>90 Days Free Support Available</span>
+               </div>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <i class="fas fa-ticket-alt"></i>
+                  <span>Create a support ticket <a href="https://people.infintor.com/contactus" target="_blank">people.infintor.com/contactus</a> </span>
+               </div>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <i class="fas fa-envelope"></i>
+                  <span>Send an email to <a href="mailto:odoo@infintor.com">odoo@infintor.com</a></span>
+               </div>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <i class="fas fa-globe"></i>
+                  <span>Visit <a href="https://www.infintor.com" target="_blank">www.infintor.com</a></span>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

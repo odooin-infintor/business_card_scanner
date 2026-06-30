@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Business Card Scanner',
+    'name': 'Odoo AI Business Card Scanner',
     'version': '19.0.1.1.0',
     'category': 'Contacts',
     'summary': 'Scan business cards and save contacts to Odoo',

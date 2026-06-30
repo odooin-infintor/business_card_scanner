@@ -38,8 +38,8 @@
     'currency': 'USD',
 
     'images': [
-    'static/description/icon.png',
-    'static/description/banner.png',
+            'static/description/icon.png',
+            'static/description/banner.png',
         ],
     'depends': ['contacts', 'base', 'crm'],
     'data': [
@@ -61,7 +61,6 @@
             'business_card_scanner/static/src/xml/card_scanner_templates.xml',
         ],
     },
-    'images': ['static/description/icon.png'],
     'installable': True,
     'application': True,
     'auto_install': False,

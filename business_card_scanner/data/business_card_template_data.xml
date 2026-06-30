@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Default Partner template -->
+    <record id="business_card_template_partner_default" model="business.card.template">
+        <field name="name">Business Card Template</field>
+        <field name="target_model">partner</field>
+        <field name="auto_evaluate">False</field>
+    </record>
+
+    <!-- Default mapping lines for Partner template -->
+    <record id="bc_mapping_partner_name" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">10</field>
+        <field name="card_field">contact_name</field>
+        <field name="partner_field">name</field>
+    </record>
+    <record id="bc_mapping_partner_title" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">20</field>
+        <field name="card_field">job_title</field>
+        <field name="partner_field">function</field>
+    </record>
+    <record id="bc_mapping_partner_email" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">30</field>
+        <field name="card_field">email</field>
+        <field name="partner_field">email</field>
+    </record>
+    <record id="bc_mapping_partner_phone" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">40</field>
+        <field name="card_field">phone</field>
+        <field name="partner_field">phone</field>
+    </record>
+    <record id="bc_mapping_partner_mobile" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">50</field>
+        <field name="card_field">mobile</field>
+        <field name="partner_field">mobile</field>
+    </record>
+    <record id="bc_mapping_partner_website" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">60</field>
+        <field name="card_field">website</field>
+        <field name="partner_field">website</field>
+    </record>
+    <record id="bc_mapping_partner_street" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">70</field>
+        <field name="card_field">street</field>
+        <field name="partner_field">street</field>
+    </record>
+    <record id="bc_mapping_partner_city" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">80</field>
+        <field name="card_field">city</field>
+        <field name="partner_field">city</field>
+    </record>
+    <record id="bc_mapping_partner_zip" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_partner_default"/>
+        <field name="sequence">90</field>
+        <field name="card_field">zip_code</field>
+        <field name="partner_field">zip</field>
+    </record>
+
+    <!-- Lead template -->
+    <record id="business_card_template_lead_default" model="business.card.template">
+        <field name="name">Business Card Template (Lead)</field>
+        <field name="target_model">lead</field>
+        <field name="auto_evaluate">False</field>
+    </record>
+
+    <!-- Default mapping lines for Lead template -->
+    <record id="bc_mapping_lead_name" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">10</field>
+        <field name="card_field">contact_name</field>
+        <field name="lead_field">contact_name</field>
+    </record>
+    <record id="bc_mapping_lead_title" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">20</field>
+        <field name="card_field">job_title</field>
+        <field name="lead_field">job_position</field>
+    </record>
+    <record id="bc_mapping_lead_email" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">30</field>
+        <field name="card_field">email</field>
+        <field name="lead_field">email_from</field>
+    </record>
+    <record id="bc_mapping_lead_phone" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">40</field>
+        <field name="card_field">phone</field>
+        <field name="lead_field">phone</field>
+    </record>
+    <record id="bc_mapping_lead_mobile" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">50</field>
+        <field name="card_field">mobile</field>
+        <field name="lead_field">mobile</field>
+    </record>
+    <record id="bc_mapping_lead_street" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">60</field>
+        <field name="card_field">street</field>
+        <field name="lead_field">street</field>
+    </record>
+    <record id="bc_mapping_lead_city" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">70</field>
+        <field name="card_field">city</field>
+        <field name="lead_field">city</field>
+    </record>
+    <record id="bc_mapping_lead_zip" model="business.card.field.mapping">
+        <field name="template_id" ref="business_card_template_lead_default"/>
+        <field name="sequence">80</field>
+        <field name="card_field">zip_code</field>
+        <field name="lead_field">zip</field>
+    </record>
+
+</odoo>

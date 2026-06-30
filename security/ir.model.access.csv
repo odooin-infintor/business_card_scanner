@@ -1,7 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_business_card_scan_user,business.card.scan user,model_business_card_scan,base.group_user,1,1,1,1
-access_business_card_scan_manager,business.card.scan manager,model_business_card_scan,base.group_system,1,1,1,1
-access_business_card_scan_log_user,business.card.scan.log user,model_business_card_scan_log,base.group_user,1,1,1,0
-access_business_card_scan_log_manager,business.card.scan.log manager,model_business_card_scan_log,base.group_system,1,1,1,1
-access_business_card_contact_user,business.card.contact user,model_business_card_contact,base.group_user,1,1,1,1
-access_business_card_contact_manager,business.card.contact manager,model_business_card_contact,base.group_system,1,1,1,1

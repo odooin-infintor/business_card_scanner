@@ -34,7 +34,7 @@
     # Use 'OPL-1' instead of 'LGPL-3' if you plan to SELL this app.
     # LGPL-3 allows free redistribution - not compatible with paid listings.
     'license': 'Other proprietary',
-    'price': 188.00,
+    'price': 49.00,
     'currency': 'USD',
 
     'images': [

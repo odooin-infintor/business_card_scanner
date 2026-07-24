@@ -4,261 +4,413 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>odoo Business Card Scanner</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+      <style>
+         /* ---- Base fixes so nothing overflows the viewport ---- */
+         html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+         }
+         img {
+            max-width: 100%;
+            height: auto;
+         }
+         .oe_container {
+            max-width: 100%;
+            box-sizing: border-box;
+         }
+         .support-item {
+            width: 100% !important;
+            max-width: 500px;
+            box-sizing: border-box;
+         }
+         .mobile-shot {
+            flex: 0 0 30%;
+            max-width: 30%;
+            margin: 6px;
+            box-sizing: border-box;
+         }
+
+         /* ---- Responsive typography & spacing ---- */
+         @media (max-width: 768px) {
+            .oe_slogan {
+               font-size: 22px !important;
+               line-height: 1.35;
+            }
+            .oe_slogan.tagline {
+               font-size: 16px !important;
+            }
+            section.oe_container {
+               padding: 0 4% !important;
+            }
+            h2 { font-size: 22px !important; }
+            h3.oe_slogan { font-size: 16px !important; }
+            .support-content { width: 100% !important; }
+            .support-item { width: 100% !important; padding: 10px 16px !important; }
+         }
+
+         @media (max-width: 480px) {
+            .mobile-shot {
+               flex: 0 0 45%;
+               max-width: 45%;
+            }
+            .oe_slogan.tagline {
+               font-size: 15px !important;
+            }
+         }
+      </style>
    </head>
-   <body style="margin:0;padding:0;max-width:100%;overflow-x:hidden;">
-      <div class="main-body" style="max-width:100%;overflow-x:hidden;">
-
-         <!-- ===== HERO ===== -->
-         <section style="text-align:center;padding:4vw 5vw;box-sizing:border-box;max-width:100%;">
-            <h2 style="color:#008080;font-size:clamp(22px,5vw,32px);margin:0 0 16px 0;">Business Card Scanner</h2>
-            <p style="text-align:center;font-size:clamp(14px,2.6vw,20px);line-height:1.6;color:#785e5b;max-width:900px;margin:0 auto;">
-               Effortlessly digitize business cards into Odoo with our AI-powered scanning extension. Capture or upload a card, let AI extract the contact details automatically, review and edit before saving, then convert each scan into a Contact or a Lead — eliminating manual data entry entirely.
-            </p>
+   <body>
+      <div class="main-body">
+         <section class="oe_container text-center">
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="color:#008080;"> Business Card Scanner </h2>
+               <p class="oe_slogan tagline" style="text-align: center;font-size: 20px;color:#785e5b">
+                  Effortlessly digitize business cards into Odoo with our AI-powered scanning extension. Capture or upload a card, let AI extract the contact details automatically, review and edit before saving, then convert each scan into a Contact or a Lead — eliminating manual data entry entirely.
+               </p>
+            </div>
+         </section>
+         <section class="oe_container text-center pb-5">
+            <div class="oe_row oe_spaced">
+               <h4 class="oe_slogan" style="color:#008080;">1. Enterprise</h4>
+               <h4 class="oe_slogan" style="color:#008080;">2. odoo sh</h4>
+            </div>
          </section>
 
-         <section style="text-align:center;padding:0 5vw 24px 5vw;box-sizing:border-box;">
-            <h4 style="color:#008080;font-size:clamp(16px,3vw,20px);margin:4px 0;">1. Enterprise</h4>
-            <h4 style="color:#008080;font-size:clamp(16px,3vw,20px);margin:4px 0;">2. odoo sh</h4>
-         </section>
+         <!-- Features Highlight Section -->
+         <div class="container features-highlight text-center">
+            <h3>Features Highlight</h3>
+            <div class="row my-3 py-2" style="justify-content:center">
 
-         <!-- ===== FEATURES HIGHLIGHT ===== -->
-         <div style="text-align:center;padding:0 4vw;box-sizing:border-box;max-width:100%;">
-            <h3 style="font-size:clamp(20px,4vw,26px);margin-bottom:16px;">Features Highlight</h3>
-            <div class="row justify-content-center g-0" style="margin:0;">
-
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/camera.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Camera Capture / Image Upload</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Capture a business card directly with your device camera or upload an existing image, on desktop or mobile.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/camera.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Camera Capture / Image Upload</h5>
+                     <p>Capture a business card directly with your device camera or upload an existing image, on desktop or mobile.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/ai.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">AI-Powered OCR Extraction</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Extract text from scanned cards using advanced AI models, including OpenAI GPT-4o and Google Gemini.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/ai.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">AI-Powered OCR Extraction</h5>
+                     <p>Extract text from scanned cards using advanced AI models, including OpenAI GPT-4o and Google Gemini.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/address_card.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Auto-Fill Contact Fields</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Extracted information is automatically mapped to name, phone, email, company, address, and website.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/address_card.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Auto-Fill Contact Fields</h5>
+                     <p>Extracted information is automatically mapped to name, phone, email, company, address, and website.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/edit.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Preview & Edit Before Saving</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Review extracted details and correct any field before the record is saved, ensuring accurate data.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/edit.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Preview & Edit Before Saving</h5>
+                     <p>Review extracted details and correct any field before the record is saved, ensuring accurate data.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/database.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Dedicated Scan Records</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Every scan is saved to a dedicated Business Card Scan master record, separate from your main Contacts data.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/database.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Dedicated Scan Records</h5>
+                     <p>Every scan is saved to a dedicated Business Card Scan master record, separate from your main Contacts data.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/convert.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Convert to Contact or Lead</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Save scanned cards as a Contact in res.partner, or convert them directly into a Lead in the CRM pipeline.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/convert.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Convert to Contact or Lead</h5>
+                     <p>Save scanned cards as a Contact in res.partner, or convert them directly into a Lead in the CRM pipeline.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/history.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Clean Scan History</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Browse every scanned card in an organized All Scans list, with clear status of conversion to Contact or Lead.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/history.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Clean Scan History</h5>
+                     <p>Browse every scanned card in an organized All Scans list, with clear status of conversion to Contact or Lead.</p>
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                  <img src="images/key.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                  <h5 style="color:#3f8580;font-size:clamp(15px,2.4vw,17px);margin:6px 0;">Bring Your Own API Key</h5>
-                  <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Connect your own OpenAI or Google Gemini API key for OCR processing, keeping full control of your AI provider.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/key.png" width="55" height="55" alt=""/>
+                     <h5 style="color: #3f8580;">Bring Your Own API Key</h5>
+                     <p>Connect your own OpenAI or Google Gemini API key for OCR processing, keeping full control of your AI provider.</p>
                   </div>
                </div>
 
             </div>
          </div>
 
-         <!-- ===== SCREENSHOTS ===== -->
-         <section style="padding:5vw 5vw 2vw 5vw;box-sizing:border-box;max-width:100%;">
+         <!-- Screenshots Section -->
+         <section class="oe_container" style="padding: 0% 0% 0% 4%;">
 
-            <h2 style="text-align:left;opacity:0.6;font-size:clamp(22px,4.5vw,28px);font-weight:600;margin:0 0 20px 0;"><b>Screenshots</b></h2>
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="text-align: left;opacity:0.6;font-size: 28px;font-weight: 600;margin: 0px !important;">
+                  <b>Screenshots</b>
+               </h2>
+            </div>
+            <p></p>
 
-            <!-- PART 1: CONFIGURATION -->
-            <h2 style="text-align:left;color:#008080;font-size:clamp(19px,3.6vw,22px);font-weight:700;margin:20px 0 10px 0;"><b>1. Configuration</b></h2>
+            <!-- ===== PART 1: CONFIGURATION ===== -->
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="text-align: left;color:#008080;font-size: 22px;font-weight: 700;margin: 0px !important;">
+                  <b>1. Configuration</b>
+               </h2>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>1.1) Activate the AI app from Apps.</b></h3>
-            <img src="config_activate_ai.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 1.1) Activate the AI app from Apps.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="config_activate_ai.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>1.2) Go to Settings → AI to choose your provider, Enable "Use your own ChatGPT account" or "Use your own Google Gemini account" and enter your API key.</b></h3>
-            <img src="config_ai_provider.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 1.2) Go to Settings → AI to choose your provider, Enable "Use your own ChatGPT account" or "Use your own Google Gemini account" and enter your API key.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="config_ai_provider.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <!-- PART 2: WORKFLOW -->
-            <h2 style="text-align:left;color:#008080;font-size:clamp(19px,3.6vw,22px);font-weight:700;margin:20px 0 10px 0;"><b>2. Scanning Workflow</b></h2>
+            <!-- ===== PART 2: WORKFLOW ===== -->
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="text-align: left;color:#008080;font-size: 22px;font-weight: 700;margin: 0px !important;">
+                  <b>2. Scanning Workflow</b>
+               </h2>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.1) Capture or upload a business card image directly from the scanner screen.</b></h3>
-            <img src="capture_screen.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.1) Capture or upload a business card image directly from the scanner screen.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="capture_screen.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.2) Click "Extract Info" — AI extracts contact details automatically and presents them for review.</b></h3>
-            <img src="ai_extraction.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.2) Click "Extract Info" — AI extracts contact details automatically and presents them for review.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="ai_extraction.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.3) Preview and edit the extracted fields before saving the record.</b></h3>
-            <img src="preview_edit.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.3) Preview and edit the extracted fields before saving the record.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="preview_edit.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.4) View your full scanning history in the All Scans list.</b></h3>
-            <img src="all_scans_list.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.4) View your full scanning history in the All Scans list.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="all_scans_list.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.5) Convert a scanned card into a Contact with one click.</b></h3>
-            <img src="convert_to_contact.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.5) Convert a scanned card into a Contact with one click.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="convert_to_contact.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 10px 0;"><b>2.6) Or convert a scanned card directly into a Lead in the CRM pipeline.</b></h3>
-            <img src="convert_to_lead.jpeg" alt="" style="width:100%;max-width:100%;height:auto;box-shadow:0px 0px 8px 0px #e42049;display:block;margin-bottom:20px;"/>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 2.6) Or convert a scanned card directly into a Lead in the CRM pipeline.</b>
+               </h3>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <img src="convert_to_lead.jpeg" alt="" style="width: 95%;box-shadow: 0px 0px 8px 0px #e42049;"/>
+            </div>
+            <p></p>
 
-            <!-- PART 3: MOBILE -->
-            <h2 style="text-align:left;color:#008080;font-size:clamp(19px,3.6vw,22px);font-weight:700;margin:20px 0 10px 0;"><b>3. Mobile Experience</b></h2>
+            <!-- ===== PART 3: MOBILE ===== -->
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="text-align: left;color:#008080;font-size: 22px;font-weight: 700;margin: 0px !important;">
+                  <b>3. Mobile Experience</b>
+               </h2>
+            </div>
+            <p></p>
 
-            <h3 style="text-align:left;font-size:clamp(15px,2.8vw,18px);margin:0 0 14px 0;"><b>3.1) Scan, review, and save business cards directly from your phone — fully mobile-friendly.</b></h3>
+            <div class="oe_row oe_spaced">
+               <h3 class="oe_slogan" style="text-align: left;font-size: 18px;margin: 0px !important;">
+                  <b> 3.1) Scan, review, and save business cards directly from your phone — fully mobile-friendly.</b>
+               </h3>
+            </div>
+            <p></p>
 
-            <div class="row justify-content-center g-0" style="margin:0;">
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_1.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+            <div class="oe_row oe_spaced" style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;row-gap:18px;box-sizing:border-box;">
+               <div class="mobile-shot">
+                  <img src="mobile_1.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_2.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+               <div class="mobile-shot">
+                  <img src="mobile_2.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_3.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+               <div class="mobile-shot">
+                  <img src="mobile_3.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_4.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+               <div class="mobile-shot">
+                  <img src="mobile_4.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_5.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+               <div class="mobile-shot">
+                  <img src="mobile_5.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
-               <div class="col-6 col-sm-4 col-md-2" style="box-sizing:border-box;padding:6px;">
-                  <img src="mobile_6.jpeg" alt="" style="width:100%;display:block;box-shadow:0px 0px 8px 0px #e42049;"/>
+               <div class="mobile-shot">
+                  <img src="mobile_6.jpeg" alt="" style="width:100%;display:block;box-shadow: 0px 0px 8px 0px #e42049;"/>
                </div>
             </div>
+            <p></p>
 
          </section>
 
-         <!-- ===== DEVELOPED BY ===== -->
-         <section style="text-align:center;padding:4vw 6vw;box-sizing:border-box;max-width:100%;">
-            <h2 style="color:#008080;font-size:clamp(19px,3.8vw,24px);font-weight:700;margin:0 0 16px 0;">
-               Developed by Infintor – Trusted Odoo Partner for India &amp; Germany
-            </h2>
-            <p style="text-align:center;font-size:clamp(14px,2.4vw,17px);line-height:1.7;color:#4a4a4a;max-width:900px;margin:0 auto;">
-               This Odoo application is professionally developed by Infintor Solutions, an experienced Odoo implementation and development company serving businesses across India and Germany. As an Odoo partner, we specialize in building reliable, scalable, and user-friendly Odoo apps that simplify business operations and extend the capabilities of the Odoo ERP platform. Our team delivers high-quality Odoo customization, module development, system integration, migration, and support services for organizations of all sizes. Every application we publish is designed following Odoo development best practices to ensure seamless compatibility, excellent performance, and long-term maintainability. Whether you need a ready-to-use Odoo module or a fully customized ERP solution, Infintor helps businesses in India, Germany, and across Europe maximize the value of their Odoo investment with innovative, business-focused solutions.
-            </p>
+         <section class="oe_container text-center py-5" style="padding: 3% 6%;">
+            <div class="oe_row oe_spaced">
+               <h2 class="oe_slogan" style="color:#008080;font-size:24px;font-weight:700;">
+                  Developed by Infintor – Trusted Odoo Partner for India &amp; Germany
+               </h2>
+            </div>
+            <p></p>
+            <div class="oe_row oe_spaced">
+               <p class="oe_slogan tagline" style="text-align:center;font-size:17px;line-height:1.7;color:#4a4a4a;max-width:900px;margin:0 auto;">
+                  This Odoo application is professionally developed by Infintor Solutions, an experienced Odoo implementation and development company serving businesses across India and Germany. As an Odoo partner, we specialize in building reliable, scalable, and user-friendly Odoo apps that simplify business operations and extend the capabilities of the Odoo ERP platform. Our team delivers high-quality Odoo customization, module development, system integration, migration, and support services for organizations of all sizes. Every application we publish is designed following Odoo development best practices to ensure seamless compatibility, excellent performance, and long-term maintainability. Whether you need a ready-to-use Odoo module or a fully customized ERP solution, Infintor helps businesses in India, Germany, and across Europe maximize the value of their Odoo investment with innovative, business-focused solutions.
+               </p>
+            </div>
          </section>
 
-         <!-- ===== OUR SERVICES ===== -->
-         <div style="text-align:center;padding:4vw;box-sizing:border-box;max-width:100%;">
-            <h2 style="font-size:clamp(22px,4.5vw,28px);margin-bottom:16px;">Our Services</h2>
-            <div class="row justify-content-center g-0" style="margin:0;">
+         <div class="container services-section text-center py-5 my-5">
+            <h2>Our Services</h2>
+            <div class="services-container row my-3 py-2" style="justify-content: center">
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/tools.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Implementation</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">End-to-end Odoo implementation to meet your business needs.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/tools.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Implementation</h4>
+                     <p>End-to-end Odoo implementation to meet your business needs.</p>
+<!--                     <a href="https://www.infintor.com/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Visit our Website &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/cogs.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Customization</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Custom solutions tailored to your unique requirements.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/cogs.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Customization</h4>
+                     <p>Custom solutions tailored to your unique requirements.</p>
+<!--                     <a href="https://www.infintor.com" target="_blank">Visit our website</a>-->
+<!--                     <a href="https://www.infintor.com/odoo-erp-customization-services/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/headset.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Support & Training</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Comprehensive support and training to enhance your Odoo usage.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/headset.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Support & Training</h4>
+                     <p>Comprehensive support and training to enhance your Odoo usage.</p>
+<!--                     <a href="https://www.infintor.com/odoo-support-and-maintenance-services/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/user.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Hire an Odoo Developer</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Get access to skilled Odoo developers for your project needs.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/user.png" width="55" height="55" alt=""/>
+                     <h4>Hire an Odoo Developer</h4>
+                     <p>Get access to skilled Odoo developers for your project needs.</p>
+<!--                     <a href="https://www.infintor.com/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/plug.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Integration</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Integrate Odoo seamlessly with third-party apps and systems.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/plug.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Integration</h4>
+                     <p>Integrate Odoo seamlessly with third-party apps and systems.</p>
+<!--                     <a href="https://www.infintor.com/odoo-erp-integration-services/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/cloud.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Hosting & Cloud</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Secure and scalable Odoo hosting solutions.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/cloud.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Hosting & Cloud</h4>
+                     <p>Secure and scalable Odoo hosting solutions.</p>
+<!--                     <a href="https://www.infintor.com/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;border-right:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/wrench.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Maintenance</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Ensure smooth and uninterrupted operations.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/wrench.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Maintenance</h4>
+                     <p>Ensure smooth and uninterrupted operations.</p>
+<!--                     <a href="https://www.infintor.com/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
-               <div class="col-lg-3 col-md-4 col-sm-6 col-6" style="box-sizing:border-box;padding:0;margin-bottom:14px;background-color:#f9fcfd;text-align:center;border-top:1px solid #dfe6e9;">
-                  <div style="padding:20px 15px;">
-                     <img src="images/comments.png" width="55" height="55" alt="" style="width:55px;height:55px;max-width:55px;margin:0 auto 10px auto;display:block;"/>
-                     <h4 style="font-size:clamp(15px,2.6vw,18px);margin:6px 0;">Odoo Consulting</h4>
-                     <p style="font-size:clamp(13px,2.2vw,15px);color:#555;margin:6px 0;">Expert consulting to help you leverage Odoo for maximum efficiency.</p>
+               <div class="col-md-3 col-sm-6 feature-item p-1">
+                  <div class="box" style="padding:15px; background-color:#f9fcfd;">
+                     <img src="images/comments.png" width="55" height="55" alt=""/>
+                     <h4>Odoo Consulting</h4>
+                     <p>Expert consulting to help you leverage Odoo for maximum efficiency.</p>
+<!--                     <a href="https://www.infintor.com/odoo-erp-consulting-services/" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; font-weight:600;">Learn more &rarr;</a>-->
                   </div>
                </div>
 
             </div>
          </div>
 
-         <!-- ===== SUPPORT & DEMO ===== -->
-         <div style="text-align:center;padding:4vw;box-sizing:border-box;max-width:100%;">
-            <h2 style="font-size:clamp(22px,4.5vw,28px);margin-bottom:16px;">Support &amp; Demo</h2>
-            <div style="max-width:520px;margin:0 auto;box-sizing:border-box;">
-
-               <div style="padding:10px 20px;background-color:#f9fcfd;width:100%;box-sizing:border-box;margin-bottom:6px;">
-                  <span style="font-size:clamp(13px,2.4vw,15px);">90 Days Free Support Available</span>
+         <div class="support-section text-center pb-5">
+            <h2>Support &amp; Demo</h2>
+            <div class="support-content" style="display: inline-block; text-align: center; max-width: 100%;">
+               <div class="support-item" style="padding:10px 30px; margin:2px; background-color: #f9fcfd; width:500px;">
+                  <span>90 Days Free Support Available</span>
                </div>
-
-               <div style="padding:10px 20px;background-color:#f9fcfd;width:100%;box-sizing:border-box;margin-bottom:6px;">
-                  <span style="font-size:clamp(13px,2.4vw,15px);">Create a support ticket <a href="https://people.infintor.com/contactus" style="color:#00A09D;text-decoration:underline;">people.infintor.com/contactus</a></span>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <span>Create a support ticket <a href="https://people.infintor.com/contactus" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; display:inline-block; padding:4px 2px;">people.infintor.com/contactus</a></span>
                </div>
-
-               <div style="padding:10px 20px;background-color:#f9fcfd;width:100%;box-sizing:border-box;margin-bottom:6px;">
-                  <span style="font-size:clamp(13px,2.4vw,15px);">Send an email to <a href="mailto:odoo@infintor.com" style="color:#00A09D;text-decoration:underline;">odoo@infintor.com</a></span>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <span>Send an email to <a href="mailto:odoo@infintor.com" style="color:#00A09D; text-decoration:underline; display:inline-block; padding:4px 2px;">odoo@infintor.com</a></span>
                </div>
-
-               <div style="padding:10px 20px;background-color:#f9fcfd;width:100%;box-sizing:border-box;margin-bottom:6px;">
-                  <span style="font-size:clamp(13px,2.4vw,15px);">Visit <a href="https://www.infintor.com" style="color:#00A09D;text-decoration:underline;">www.infintor.com</a></span>
+               <div class="support-item" style="padding: 10px 30px; margin: 2px; background-color: #f9fcfd; width: 500px;">
+                  <span>Visit <a href="https://www.infintor.com" target="_blank" rel="noopener noreferrer" style="color:#00A09D; text-decoration:underline; display:inline-block; padding:4px 2px;">www.infintor.com</a></span>
                </div>
-
             </div>
          </div>
 
